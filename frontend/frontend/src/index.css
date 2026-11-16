@@ -1,0 +1,370 @@
+
+@import "tailwindcss";
+
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color: #F7F5F0;
+  background: #202326;
+  color-scheme: dark;
+
+  /* Main theme */
+  --charcoal: #202326;
+  --charcoal-light: #292D31;
+  --surface: #2B3034;
+  --surface-light: #353B40;
+  --surface-hover: #3B4248;
+
+  /* Vibrant accent palette */
+  --coral: #FF8A5B;
+  --orange: #FF9D63;
+  --yellow: #FFC15E;
+  --mint: #8CE0BB;
+  --emerald: #55C99A;
+  --sky: #78C9F0;
+  --turquoise: #66D5CF;
+  --pink: #F58BB8;
+  --lime: #B8DF75;
+
+  --text-primary: #F7F5F0;
+  --text-secondary: #C5C8C7;
+  --muted: #969D9F;
+
+  --border: rgb(255 255 255 / 10%);
+  --border-hover: rgb(255 255 255 / 20%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--charcoal);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--charcoal);
+  color: var(--text-primary);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+::selection {
+  background: rgb(255 138 91 / 35%);
+  color: white;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--charcoal);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background: #596168;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--coral);
+}
+
+/* Global form fields */
+.field {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  background: #292E32;
+  padding: 0.85rem 1rem;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  outline: none;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.field::placeholder {
+  color: #92999B;
+}
+
+.field:hover {
+  border-color: var(--border-hover);
+}
+
+.field:focus {
+  border-color: var(--coral);
+  background: #30363A;
+  box-shadow: 0 0 0 3px rgb(255 138 91 / 12%);
+}
+
+.field option {
+  background: var(--surface);
+  color: white;
+}
+
+input,
+textarea,
+select {
+  accent-color: var(--coral);
+}
+
+textarea {
+  line-height: 1.7;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+/* Main background compatibility */
+.bg-\[\#0c0b14\] {
+  background-color: var(--charcoal) !important;
+}
+
+.bg-\[\#151421\] {
+  background-color: var(--surface) !important;
+}
+
+.bg-\[\#11101c\] {
+  background-color: var(--charcoal-light) !important;
+}
+
+/* Legacy text colors */
+.text-violet-300,
+.text-violet-400,
+.text-violet-500 {
+  color: var(--pink) !important;
+}
+
+.text-blue-300,
+.text-blue-400 {
+  color: var(--sky) !important;
+}
+
+.text-emerald-300,
+.text-emerald-400 {
+  color: var(--mint) !important;
+}
+
+.text-amber-300,
+.text-amber-400 {
+  color: var(--yellow) !important;
+}
+
+.text-pink-300,
+.text-pink-400 {
+  color: var(--pink) !important;
+}
+
+/* Legacy button compatibility */
+.bg-violet-600 {
+  background-color: var(--coral) !important;
+  color: var(--charcoal) !important;
+}
+
+.hover\:bg-violet-500:hover {
+  background-color: var(--yellow) !important;
+  color: var(--charcoal) !important;
+}
+
+.bg-violet-500\/5,
+.bg-violet-500\/10,
+.bg-violet-500\/15,
+.bg-violet-600\/15 {
+  background-color: rgb(245 139 184 / 8%) !important;
+}
+
+.hover\:bg-violet-600\/25:hover {
+  background-color: rgb(245 139 184 / 16%) !important;
+}
+
+/* Legacy colored surfaces */
+.bg-blue-500\/10,
+.bg-blue-500\/15 {
+  background-color: rgb(120 201 240 / 12%) !important;
+}
+
+.bg-emerald-500\/10,
+.bg-emerald-500\/15 {
+  background-color: rgb(140 224 187 / 12%) !important;
+}
+
+.bg-pink-500\/10,
+.bg-pink-500\/15 {
+  background-color: rgb(245 139 184 / 12%) !important;
+}
+
+.bg-amber-500\/10,
+.bg-amber-500\/15 {
+  background-color: rgb(255 193 94 / 12%) !important;
+}
+
+/* Legacy borders */
+.border-violet-500\/20,
+.border-violet-500\/30,
+.border-violet-500\/40 {
+  border-color: rgb(245 139 184 / 25%) !important;
+}
+
+.hover\:border-violet-500\/30:hover,
+.hover\:border-violet-500\/40:hover {
+  border-color: var(--pink) !important;
+}
+
+.border-white\/10 {
+  border-color: var(--border) !important;
+}
+
+.border-white\/\[0\.1\] {
+  border-color: var(--border) !important;
+}
+
+/* Legacy neutral text */
+.text-gray-300 {
+  color: #D9DCDA !important;
+}
+
+.text-gray-400 {
+  color: #B8BEBD !important;
+}
+
+.text-gray-500 {
+  color: #969D9F !important;
+}
+
+.text-gray-600 {
+  color: #7E878A !important;
+}
+
+/* Legacy neutral backgrounds */
+.bg-white\/5 {
+  background-color: rgb(255 255 255 / 5%) !important;
+}
+
+.hover\:bg-white\/5:hover,
+.hover\:bg-white\/10:hover {
+  background-color: rgb(255 255 255 / 10%) !important;
+}
+
+.hover\:text-white:hover {
+  color: var(--yellow) !important;
+}
+
+/* Error states */
+.bg-red-500\/10 {
+  background-color: rgb(255 107 107 / 12%) !important;
+}
+
+.border-red-500\/20 {
+  border-color: rgb(255 107 107 / 25%) !important;
+}
+
+.text-red-300,
+.text-red-400 {
+  color: #FF9999 !important;
+}
+
+/* Success states */
+.bg-emerald-500\/10 {
+  background-color: rgb(140 224 187 / 12%) !important;
+}
+
+.border-emerald-500\/20 {
+  border-color: rgb(140 224 187 / 25%) !important;
+}
+
+.text-emerald-300 {
+  color: var(--mint) !important;
+}
+
+/* Shadows */
+.shadow-violet-500\/10 {
+  --tw-shadow-color: rgb(255 139 184 / 10%);
+}
+
+/* Reusable animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  article,
+  section > div,
+  section > article {
+    animation: fade-up 350ms ease both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
